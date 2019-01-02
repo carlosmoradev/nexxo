@@ -9,6 +9,8 @@ SERVER=$(cat "$CENTRAL")
 
 ssh root@$SERVER ls /tmp/ |grep openvpn > /tmp/vpn
 
+echo "Por favor ingrese el nombre del servidor al que se desea conectar"
+
 read destination
 
 for i in $(cat /tmp/vpn); do ssh root@$SERVER cat /tmp/$i/tmp/gerencia-status.log |grep -i $destination; done
