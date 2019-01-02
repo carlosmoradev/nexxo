@@ -17,4 +17,4 @@ Este cambio implico realizar cambios en mis procesos de conexión, ya que no con
 
 No deseo complicarme la vida con reservas de ip, así que simplemente decidí crear esta pequeña aplicación que automatiza un poco ese proceso de conexión.
 
-Muy posiblemente el archivo mas extenso de este repositorio será este Readme.
+Muy posiblemente el archivo mas extenso de este repositorio será este Readme :).

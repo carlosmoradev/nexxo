@@ -4,3 +4,11 @@
 #Script created by Carlos Mario Mora contacto@carlosmora.biz
 
 
+CENTRAL="server"
+SERVER=$(cat "$CENTRAL")
+
+ssh root@$SERVER ls /tmp/ |grep openvpn > /tmp/vpn
+
+read destination
+
+for i in $(cat /tmp/vpn); do ssh root@$SERVER cat /tmp/$i/tmp/gerencia-status.log |grep -i $destination; done
