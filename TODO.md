@@ -1,1 +1,1 @@
-- [ ] Valitate the Cloud provider avalaibilty before try to search the server 
+- [ ] Validate the Cloud provider avalaibilty before try to search the server 
