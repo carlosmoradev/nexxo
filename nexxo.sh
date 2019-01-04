@@ -7,18 +7,15 @@
 CENTRAL="server"
 SERVER=$(cat "$CENTRAL")
 
-if ls /tmp/vpn
-then
+if ping -c 1 $SERVER &> /dev/null
+	then
+		echo "Estableciendo la conexion"
 
-DEST=$1
-for i in $(cat /tmp/vpn); do ssh root@$SERVER cat /tmp/$i/tmp/gerencia-status.log |grep -i $DEST; done
+		ssh root@$SERVER ls /tmp/ |grep openvpn > /tmp/vpn
+		DEST=$1
+		for i in $(cat /tmp/vpn); do ssh root@$SERVER cat /tmp/$i/tmp/gerencia-status.log |grep -i $DEST; done
 
-else
-
-	echo "Estableciendo la primera conexion"
-
-ssh root@$SERVER ls /tmp/ |grep openvpn > /tmp/vpn
-
-
+	else
+		echo "$SERVER no disponible. Verifique el estado del enlace VPN"
+		rm -rfv /tmp/vpn
 fi
-
