@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #This is a script to check the openvpn remote log and access to the remote
 #servers connected.
 #Script created by Carlos Mario Mora contacto@carlosmora.biz
@@ -9,8 +9,6 @@ SERVER=$(cat "$CENTRAL")
 
 ssh root@$SERVER ls /tmp/ |grep openvpn > /tmp/vpn
 
-echo "Por favor ingrese el nombre del servidor al que se desea conectar"
+DEST=$1
 
-read destination
-
-for i in $(cat /tmp/vpn); do ssh root@$SERVER cat /tmp/$i/tmp/gerencia-status.log |grep -i $destination; done
+for i in $(cat /tmp/vpn); do ssh root@$SERVER cat /tmp/$i/tmp/gerencia-status.log |grep -i $DEST; done
